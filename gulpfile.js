@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 
 var DEST = 'build/';
 
+
 gulp.task('scripts', function() {
     return gulp.src([
         'src/js/helpers/*.js',
@@ -21,7 +22,8 @@ gulp.task('scripts', function() {
       .pipe(browserSync.stream());
 });
 
-// TODO: Maybe we can simplify how sass compile the minify and unminify version
+
+/* TODO: Maybe we can simplify how sass compile the minify and unminify version */
 var compileSASS = function (filename, options) {
   return sass('src/scss/*.scss', options)
         .pipe(autoprefixer('last 2 versions', '> 5%'))
@@ -30,13 +32,16 @@ var compileSASS = function (filename, options) {
         .pipe(browserSync.stream());
 };
 
+
 gulp.task('sass', function() {
     return compileSASS('custom.css', {});
 });
 
+
 gulp.task('sass-minify', function() {
     return compileSASS('custom.min.css', {style: 'compressed'});
 });
+
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -47,14 +52,17 @@ gulp.task('browser-sync', function() {
     });
 });
 
+
 gulp.task('watch', function() {
-  // Watch .html files
+  /* Watch .html files  */
   gulp.watch('production/*.html', browserSync.reload);
-  // Watch .js files
+  /* Watch .js files  */
   gulp.watch('src/js/*.js', ['scripts']);
-  // Watch .scss files
+  /* Watch .scss files  */
   gulp.watch('src/scss/*.scss', ['sass', 'sass-minify']);
 });
 
-// Default Task
+
+
+/* Default Task */
 gulp.task('default', ['browser-sync', 'watch']);
