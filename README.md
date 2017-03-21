@@ -8,10 +8,16 @@ Gentellela uses several libraries for charts, calendar, form validation, wizard 
 
 
 ## Theme Demo
-BIG SPASHY BANNER
+
+![BIG SPASHY BANNER](https://github.com/gokemon/gentelella/blob/master/documentation/images/big-spashy-banner.jpg)
+
+
 
 
 **[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
+
+Also check out the documenation folder.
+~
 
 ## Installation via Package Manger
 
